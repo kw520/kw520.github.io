@@ -1,0 +1,45 @@
+<hr>
+<p>title: vuepress<br>date: 2019-10-23 10:27:34<br>tags: ‘vue’</p>
+<hr>
+<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><blockquote>
+<p><a href="http://180.76.104.35/">此站</a>为例，介绍使用vuepress搭建博客过程 </p>
+</blockquote>
+<h2 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h2><pre><code class="bash">  npm install -g vuepress
+  # or
+  yarn global add vuepress</code></pre>
+<h2 id="博客目录"><a href="#博客目录" class="headerlink" title="博客目录"></a>博客目录</h2><ol>
+<li>新建docs文件夹，docs文件夹中新建.vuepress文件夹和README.md文件</li>
+<li>当前目录生成package.json文件</li>
+</ol>
+<pre><code class="bash">  # 1
+  mkdir docs
+  cd docs
+  mkdir .vuepress
+  echo &quot;# hello vuepress&quot; &gt; README.md
+  # 2
+  npm init -y</code></pre>
+<h4 id="当前目录文件结构"><a href="#当前目录文件结构" class="headerlink" title="当前目录文件结构"></a>当前目录文件结构</h4><pre><code class="bash">vuepress-demo
+├── package.json
+└── docs
+    ├── .vuepress
+    │   └── config.js # 配置
+    ├── README.md # 首页文件</code></pre>
+<h2 id="修改package-json文件-添加执行脚本"><a href="#修改package-json文件-添加执行脚本" class="headerlink" title="修改package.json文件 添加执行脚本"></a>修改package.json文件 添加执行脚本</h2><pre><code class="bash">  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vuepress dev docs&quot;,
+    &quot;build&quot;: &quot;vuepress build docs&quot;
+  }</code></pre>
+<h2 id="开发环境运行"><a href="#开发环境运行" class="headerlink" title="开发环境运行"></a>开发环境运行</h2><pre><code class="bash">  npm run dev  # 访问本地端口页面为/docs/README.md文件内的内容</code></pre>
+<h2 id="configjs配置"><a href="#configjs配置" class="headerlink" title="configjs配置"></a>configjs配置</h2><pre><code class="js">  module.exports = {
+    title: &#39;博客&#39;,
+    description: &#39;嘎嘣跳的博客&#39;,
+    nav: [
+      { text: &#39;关于&#39;, link: &#39;https://laine001.github.io&#39; }
+    ],
+    sidebar: [
+      &#39;/&#39;
+    ]
+  }</code></pre>
+<blockquote>
+<p>重启项目,可以看到title和desc。头部右侧多了一个关于选项</p>
+</blockquote>
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><pre><code class="bash">  npm run build # 跟目录会生成.vuepress文件夹</code></pre>
