@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		leetcode做题笔记 | 
+	 
+	BIGKEL BLOB
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/bigkel.png">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "kw520.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.5.1/dist/Valine.min.js"></script>
+
+	
+	
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">BIGKEL BLOB</a>
+
+	<ul id="menu">
+    
+
+    
+
+    
+
+    
+  
+    
+      <li class="menu-item">
+        <a href='https://github.com/kw520' class="menu-item-link" target="_blank">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </li>
+    
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="file active">
+									<a href="/2023/09/05/leetcode%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
+                     
+										    leetcode做题笔记
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	leetcode做题笔记
+</h1>
+
+<!-- meta -->
+<div class="article-meta">
+	
+
+	<span>jiakuan.chen</span>
+	<span>2023-09-05 18:56:11</span>
+
+  <div id="article-categories">
+    
+		  <span>Categories：</span>
+      
+    
+
+    
+		    <span>Tags：</span>
+        
+    
+  </div>
+
+</div>
+
+<!-- content -->
+<div id="article-content">
+	<h1 id="一、合并两个有序数组"><a href="#一、合并两个有序数组" class="headerlink" title="一、合并两个有序数组"></a>一、<strong>合并两个有序数组</strong></h1><p><img src="https://raw.githubusercontent.com/kw520/bigkel-imgs/main/imgs/clipboard.png"></p>
+<p><font color=red><strong>思路：</strong></font><font color=blue><strong>从原始nums1和nums2的末尾开始比较，不比nums2小的数往nums1的后面放，若一方遍历完，则另一方继续遍历直到结束。</strong></font></p>
+<p>三个指针，分别为	 int one &#x3D; m - 1;</p>
+<p>​    	    						int two &#x3D; n - 1;</p>
+<p>​    	    						int tail &#x3D; m + n - 1;</p>
+<p>若one &#x3D;&#x3D; -1，则nums1[tail] &#x3D; nums2[two]，且two–，tail–；</p>
+<p>反之若two &#x3D;&#x3D; -1，则nums1[tail] &#x3D; nums1[one]，且one–，tail–；</p>
+<p>反之若nums1[one] &gt;&#x3D; nums2[two]，则nums1[tail] &#x3D; nums1[one]，且one–，tail–；</p>
+<p>反之，则nums1[tail] &#x3D;  nums2[two]，且two–，tail–；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">merge</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span> m, <span class="type">int</span>[] nums2, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">one</span> <span class="operator">=</span> m - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">two</span> <span class="operator">=</span> n - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">tail</span> <span class="operator">=</span> m + n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(one &gt; -<span class="number">1</span> || two &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">    	<span class="type">int</span> <span class="variable">cur</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(one == -<span class="number">1</span>) &#123;</span><br><span class="line">        	cur = nums2[two];</span><br><span class="line">        	two --;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(two == -<span class="number">1</span>) &#123;</span><br><span class="line">            cur = nums1[one];</span><br><span class="line">            one --;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(nums1[one] &gt;= nums2[two]) &#123;</span><br><span class="line">            cur = nums1[one];</span><br><span class="line">            one --;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cur = nums2[two];</span><br><span class="line">            two --;</span><br><span class="line">        &#125;</span><br><span class="line">     	nums1[tail] = cur;</span><br><span class="line">     	tail --;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="二、移除元素"><a href="#二、移除元素" class="headerlink" title="二、移除元素"></a><strong>二、移除元素</strong></h1><p><img src="https://raw.githubusercontent.com/kw520/bigkel-imgs/main/imgs/remove.png"></p>
+<p><font color=red><strong>思路：</strong></font></p>
+<p>​		<strong>1、双指针，都从头开始，R指针若不等于val，则赋值给L后，L和R同时右移</strong></p>
+<p>​		<font color=blue>**2、双指针，L指向头，R指向尾，L &lt; R，若L指针不等于val，则右移，若等于val，则R指针值复制给L指针，R指针左移，一直循环。**</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">removeElement</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> nums.length -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (nums[left] == val) &#123;</span><br><span class="line"> 	    	nums[left] = nums[right];</span><br><span class="line">        	right--;</span><br><span class="line">      	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        	left++;</span><br><span class="line">      	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</div>
+
+<!-- post-guide -->
+
+    <div class="post-guide">
+        <div class="item left">
+            
+        </div>
+        <div class="item right">
+            
+        </div>
+    </div>
+
+
+<!-- comment - giscus -->
+
+
+<!-- comment - valine -->
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©<span id="footerYear-start"></span>-<span id="footerYear-end"></span>
+	<a href="/">jiakuan.chen</a> 
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+
+
+<script type="text/javascript">
+	document.getElementById('footerYear-start').innerHTML = new Date().getFullYear() + '';
+</script>
+
+<script type="text/javascript">
+	document.getElementById('footerYear-end').innerHTML = new Date().getFullYear() + '';
+</script>
+
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
