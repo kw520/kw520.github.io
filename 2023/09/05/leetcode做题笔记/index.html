@@ -547,8 +547,14 @@
 
 
 
+<h1 id="四三、存在重复元素2"><a href="#四三、存在重复元素2" class="headerlink" title="四三、存在重复元素2"></a>四三、存在重复元素2</h1><p><img src="https://raw.githubusercontent.com/kw520/bigkel-imgs/main/imgs/20231009222143.png"></p>
+<p><img src="https://raw.githubusercontent.com/kw520/bigkel-imgs/main/imgs/20231009222227.png"></p>
+<p><font color=red><strong>思路：</strong></font><font color=blue><strong>哈希表，滑动窗口</strong></font></p>
+<p><strong>方法一：哈希表</strong>     <font color=blue><strong>时间复杂度 O(n)    空间复杂度 O(n)</strong></font></p>
+<p>使用一个<code>map</code>，其<code>key</code>为数组中的数，<code>value</code>为这些数的下标。若遍历到的当前的数，不存在于<code>map</code>中，则将当前数和其下标都存放在<code>map</code>中，若存在于<code>map</code>中，则将<code>map</code>中与当前值相同的键值对取出来，判断它们两个的下标差是否小于等于<code>k</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">containsNearbyDuplicate</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; i ++) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> nums[i];</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(num) &amp;&amp; i - map.get(num) &lt;= k) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<p><strong>方法二：滑动窗口</strong>     <font color=blue><strong>时间复杂度 O(n)    空间复杂度 O(k)</strong></font></p>
 
 </div>
 
